@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/Cars', [CarController::class, 'index'])->name('cars.index');
+
+Route::get('/Manufacturer', [ManufacturerController::class, 'index'])->name('manufacturer.index');
