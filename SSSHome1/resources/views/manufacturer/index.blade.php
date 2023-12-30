@@ -20,20 +20,23 @@
                   <th scope="col">Phone</th>
                 </tr>
               </thead>
+              <div>
               <tbody>       
-                    <tr>
-                      <!-- <th scope="row">1</th> //Row
-                      <td></td> //Column
-                      <td></td>
-                      <td></td>
-                      <td width="150">
-                         //Show, Edit and Delete buttons below.
-                        <a href="show.html" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
-                        <a href="form.html" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
-                        <a href="#" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="confirm('Are you sure?')"><i class="fa fa-times"></i></a>
-                      </td> -->
-                    </tr>
+                @foreach ($Manufacturers as $index => $Manufacturer)
+                  <tr>
+                    <th scope="row">{{ $index + 1 }}</th>
+                    <td>{{ $Manufacturer->name }}</td>
+                    <td>{{ $Manufacturer->address }}</td>
+                    <td>{{ $Manufacturer->phone }}</td>
+                    <td width="150">
+                      <a href="show.html" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
+                      <a href="form.html" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
+                      <a href="#" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="confirm('Are you sure?')"><i class="fa fa-times"></i></a>
+                    </td>
+                  </tr>
+                  @endforeach
               </tbody>
+            </div>
             </table> 
           </div>
         </div>

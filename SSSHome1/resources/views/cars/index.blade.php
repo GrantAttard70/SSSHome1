@@ -11,6 +11,23 @@
                 <h2 class="mb-0">All Cars</h2>
               </div>
             </div>
+            <div class="row">
+              <div class="col-md-6"></div>
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col">
+                    <div class="input-group mb-3">
+                      <select id="filter_manufacturer_id" name="manufacturer_id" class="custom-select">
+                        @foreach ($manufacturer as $id => $name)
+                          <option {{ $id == request('manufacturer_id') ? 'selected' : '' }} value="{{ $id }}">{{ $name }}</option>
+                        @endforeach
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="card-body">
             <table class="table table-striped table-hover">
               <thead>
@@ -24,19 +41,21 @@
                 </tr>
               </thead>
               <tbody>       
-                    <tr>
-                      <!-- <th scope="row"></th> //row
-                      <td></td>                //column
-                      <td></td>
-                      <td></td>
-                      <td></td> 
-                      <td width="150">
-                        //Show, Edit and Delete buttons below.
-                        <a href="show.html" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
-                        <a href="form.html" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
-                        <a href="#" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="confirm('Are you sure?')"><i class="fa fa-times"></i></a>
-                      </td>-->
-                    </tr>
+              <tr>
+              @foreach ($cars as $index => $car)
+                  <th scope="row">{{ $index + 1 }}</th>
+                  <td>{{ $car->model }}</td>
+                  <td>{{ $car->year }}</td>
+                  <td>{{ $car->salesperson_email }}</td>
+                  <td>{{ $car->manufacturer->name }}</td>
+                  <td width="150">
+                  <!-- //Show, Edit and Delete buttons below. -->
+                    <a href="show.html" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
+                    <a href="form.html" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
+                    <a href="#" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="confirm('Are you sure?')"><i class="fa fa-times"></i></a>
+                  </td>
+                </tr>
+                @endforeach
               </tbody>
             </table> 
           </div>
