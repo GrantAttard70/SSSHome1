@@ -22,3 +22,6 @@ Route::get('/Cars', [CarController::class, 'index'])->name('cars.index');
 Route::get('/Cars/create', [CarController::class, 'create'])->name('cars.create');
 Route::post('/Cars/store', [CarController::class, 'store'])->name('cars.store');
 Route::get('/Manufacturer', [ManufacturerController::class, 'index'])->name('manufacturer.index');
+Route::get('/cars/{id}', [CarController::class, 'show'])->name('cars.show');
+Route::get('/cars/{id}/edit', [CarController::class, 'edit'])->name('cars.edit');
+Route::put('/cars/{id}', [CarController::class, 'update'])->name('cars.update');
