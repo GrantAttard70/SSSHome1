@@ -19,5 +19,6 @@ Route::get('/', function () {
     return view('manufacturer.index');
 });
 Route::get('/Cars', [CarController::class, 'index'])->name('cars.index');
-
+Route::get('/Cars/create', [CarController::class, 'create'])->name('cars.create');
+Route::post('/Cars/store', [CarController::class, 'store'])->name('cars.store');
 Route::get('/Manufacturer', [ManufacturerController::class, 'index'])->name('manufacturer.index');

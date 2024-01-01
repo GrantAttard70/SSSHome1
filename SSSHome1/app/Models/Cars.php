@@ -12,7 +12,8 @@ class Cars extends Model
     [
     'model',
     'year',
-    'salesperson_email'
+    'salesperson_email',
+    'manufacturer_id'
     ];
     
     public function manufacturer()
